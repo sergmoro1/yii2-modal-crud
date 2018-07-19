@@ -13,7 +13,6 @@ For example, there is a model <code>Property</code> with two fields: <code>id</c
 <h4>Controller</h4>
 
 <pre>
-<?php
 namespace backend\controllers;
 
 use sergmoro1\modal\controllers\ModalController;
@@ -33,7 +32,7 @@ class PropertyController extends ModalController
 Only matters <code>index.php</code>. Other are ordinary.
 
 <pre>
-<?php
+&lt;?php
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\bootstrap\Modal;
@@ -41,59 +40,59 @@ use yii\bootstrap\Modal;
 use sergmoro1\lookup\Module;
 
 // bind actions
-$this->registerJs('var popUp = {"id": "property", "actions": ["update"]};', yii\web\View::POS_HEAD);
+$this-&gt;registerJs('var popUp = {"id": "property", "actions": ["update"]};', yii\web\View::POS_HEAD);
 sergmoro1\modal\assets\PopUpAsset::register($this);
 
-$this->title = \Yii::t('app', 'Properties');
+$this-&gt;title = \Yii::t('app', 'Properties');
 
 echo Modal::widget([
-    'id' => 'property-win',
-    'toggleButton' => false,
-    'header' => $this->title,
-    'footer' => 
-        '<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>'. 
-        '<button type="button" class="btn btn-primary">Save</button>',
+    'id' =&gt; 'property-win',
+    'toggleButton' =&gt; false,
+    'header' =&gt; $this-&gt;title,
+    'footer' =&gt; 
+        '&lt;button type="button" class="btn btn-default" data-dismiss="modal"&gt;Cancel&lt;/button&gt;'. 
+        '&lt;button type="button" class="btn btn-primary"&gt;Save&lt;/button&gt;',
 ]);
-?>
+?&gt;
 
-<div class="property-index">
+&lt;div class="property-index"&gt;
   // create action
-  <p>
-    <?= Html::a('glyphicon glyphicon-plus', ['create'], [
-      'id' => 'property-add',
-      'data-toggle' => 'modal',
-      'data-target' => '#property-win',
-      'class' => 'btn btn-success',
-    ]) ?>
-  </p>
-  <div class="table-responsive">
-    <?= GridView::widget([
-      'dataProvider' => $dataProvider,
-      'filterModel' => $searchModel,
-      'columns' => [
+  &lt;p&gt;
+    &lt;?= Html::a('glyphicon glyphicon-plus', ['create'], [
+      'id' =&gt; 'property-add',
+      'data-toggle' =&gt; 'modal',
+      'data-target' =&gt; '#property-win',
+      'class' =&gt; 'btn btn-success',
+    ]) ?&gt;
+  &lt;/p&gt;
+  &lt;div class="table-responsive"&gt;
+    &lt;?= GridView::widget([
+      'dataProvider' =&gt; $dataProvider,
+      'filterModel' =&gt; $searchModel,
+      'columns' =&gt; [
         'id'
         'name',
         // update, delete actions
         [
-          'class' => 'yii\grid\ActionColumn',
-          'template' => '{update} {delete}',
-          'buttons' => [
-            'update' => function ($url, $model) {
+          'class' =&gt; 'yii\grid\ActionColumn',
+          'template' =&gt; '{update} {delete}',
+          'buttons' =&gt; [
+            'update' =&gt; function ($url, $model) {
               return Html::a(
-                '<span class="glyphicon glyphicon-pencil"></span>', 
+                '&lt;span class="glyphicon glyphicon-pencil"&gt;&lt;/span&gt;', 
                 $url, [
-                  'class' => 'update',
-                  'data-toggle' => 'modal',
-                  'data-target' => '#property-win',
+                  'class' =&gt; 'update',
+                  'data-toggle' =&gt; 'modal',
+                  'data-target' =&gt; '#property-win',
                 ]
               );
             },
           ],
         ],
       ],
-    ]); ?>
-  </div>
-</div>
+    ]); ?&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </pre>
 
 The entire code can be found at - https://github.com/sergmoro1/yii2-lookup.
