@@ -1,0 +1,27 @@
+{
+    "name": "sergmoro1/yii2-modal-crud",
+    "version": "1.0.0",
+    "description": "Add and update models in a modal window.",
+    "keywords": [
+        "yii2", "modal", "add", "update", "editing"
+    ],
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergey Morozov",
+            "email": "sergmoro1@ya.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*",
+    },
+    "autoload": {
+        "psr-4": {
+            "sergmoro1\\modal\\": "src"
+        }
+    }
+}
