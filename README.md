@@ -37,8 +37,6 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\bootstrap\Modal;
 
-use sergmoro1\lookup\Module;
-
 // bind actions
 $this-&gt;registerJs('var popUp = {"id": "property", "actions": ["update"]};', yii\web\View::POS_HEAD);
 sergmoro1\modal\assets\PopUpAsset::register($this);
@@ -46,12 +44,12 @@ sergmoro1\modal\assets\PopUpAsset::register($this);
 $this-&gt;title = \Yii::t('app', 'Properties');
 
 echo Modal::widget([
-    'id' =&gt; 'property-win',
-    'toggleButton' =&gt; false,
-    'header' =&gt; $this-&gt;title,
-    'footer' =&gt; 
-        '&lt;button type="button" class="btn btn-default" data-dismiss="modal"&gt;Cancel&lt;/button&gt;'. 
-        '&lt;button type="button" class="btn btn-primary"&gt;Save&lt;/button&gt;',
+  'id' =&gt; 'property-win',
+  'toggleButton' =&gt; false,
+  'header' =&gt; $this-&gt;title,
+  'footer' =&gt; 
+    '&lt;button type="button" class="btn btn-default" data-dismiss="modal"&gt;Cancel&lt;/button&gt;'. 
+    '&lt;button type="button" class="btn btn-primary"&gt;Save&lt;/button&gt;',
 ]);
 ?&gt;
 

@@ -31,7 +31,7 @@ abstract class ModalController extends Controller
     }
 
     /**
-     * Lists all models.
+     * List all models.
      * @return mixed
      */
     public function actionIndex()
@@ -49,7 +49,7 @@ abstract class ModalController extends Controller
     }
 
     /**
-     * Displays a single Domain model.
+     * Displays a single model.
      * @param integer $id
      * @return mixed
      */
