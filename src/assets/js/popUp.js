@@ -1,8 +1,7 @@
 /*
- * @author - Sergey Morozov <sergmoro1@ya.ru>
- * @license - MIT
- * 
  * Service table with pop-up form.
+ * 
+ * @author Sergey Morozov <sergmoro1@ya.ru>
  */
 popUp = popUp || {};
 popUp.default = {

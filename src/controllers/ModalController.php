@@ -2,6 +2,7 @@
 
 namespace sergmoro1\modal\controllers;
 
+use Yii;
 use yii\web\Controller;
 use yii\widgets\ActiveForm;
 use yii\web\ForbiddenHttpException;
@@ -36,11 +37,11 @@ abstract class ModalController extends Controller
      */
     public function actionIndex()
     {
-        if (!\Yii::$app->user->can('index', [], false))
-            throw new ForbiddenHttpException(\Yii::t('app', 'Access denied.'));
+        if (!Yii::$app->user->can('index', [], false))
+            throw new ForbiddenHttpException(Yii::t('app', 'Access denied.'));
 
         $searchModel = $this->newSearch();
-        $dataProvider = $searchModel->search(\Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -55,8 +56,8 @@ abstract class ModalController extends Controller
      */
     public function actionView($id)
     {
-        if (!\Yii::$app->user->can('view'))
-            return $this->alert(\Yii::t('app', 'Access denied.'));
+        if (!Yii::$app->user->can('view'))
+            return $this->alert(Yii::t('app', 'Access denied.'));
 
         return $this->renderAjax('view', [
             'model' => $this->findModel($id),
@@ -69,11 +70,11 @@ abstract class ModalController extends Controller
         $model = $this->newModel();
         if($scenario)
             $model->scenario = $scenario;
-        $request = \Yii::$app->getRequest();
+        $request = Yii::$app->getRequest();
 
         // Ajax validation including form open in a modal window
         if ($request->isAjax && $model->load($request->post())) {
-            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             return ActiveForm::validate($model);
         }
     }
@@ -89,13 +90,13 @@ abstract class ModalController extends Controller
      */
     public function actionCreate()
     {
-        if (!\Yii::$app->user->can('create'))
-            return $this->alert(\Yii::t('app', 'Access denied.'));
+        if (!Yii::$app->user->can('create'))
+            return $this->alert(Yii::t('app', 'Access denied.'));
 
         $model = $this->newModel();
         $model = $this->fillin($model, false);
         
-        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
             return $this->renderAjax('create', [
@@ -112,15 +113,15 @@ abstract class ModalController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if (!\Yii::$app->user->can('update', ['model' => $model]))
-            return $this->alert(\Yii::t('app', 'Access denied.'));
+        if (!Yii::$app->user->can('update', ['model' => $model]))
+            return $this->alert(Yii::t('app', 'Access denied.'));
 
         $model = $this->fillin($model);
         
-        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
 			return YII_DEBUG 
                 ? $this->redirect(['index'])
-			    : $this->redirect(\Yii::$app->request->referrer);
+			    : $this->redirect(Yii::$app->request->referrer);
         } else {
             return $this->renderAjax('update', [
                 'model' => $model,
@@ -136,8 +137,8 @@ abstract class ModalController extends Controller
      */
     public function actionDelete($id)
     {
-        if (!\Yii::$app->user->can('delete'))
-            throw new ForbiddenHttpException(\Yii::t('app', 'Access denied.'));
+        if (!Yii::$app->user->can('delete'))
+            throw new ForbiddenHttpException(Yii::t('app', 'Access denied.'));
 
         $this->findModel($id)->delete();
 
@@ -162,7 +163,7 @@ abstract class ModalController extends Controller
         if (($model = $self::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException(\Yii::t('app', 'The requested model does not exist.'));
+            throw new NotFoundHttpException(Yii::t('app', 'The requested model does not exist.'));
         }
     }
 }
