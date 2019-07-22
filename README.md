@@ -1,6 +1,8 @@
-#Yii2 module for editing models table in a modal window.
+Yii2 module for editing models table in a modal window
+======================================================
 
-##Installation
+Installation
+------------
 
 The preferred way to install this extension is through composer.
 
@@ -14,7 +16,8 @@ or add
 
 to the require section of your composer.json.
 
-##Usage
+Usage
+-----
 
 For example, there is a model `Property` with two fields: `id`, `name`. 
 
@@ -37,9 +40,10 @@ class PropertyController extends ModalController
 
 ###View
 
-Only matters ***index.php***. Other are ordinary.
+Only matters `index.php`. Other are ordinary.
 
 ```php
+<?php
 use Yii;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -101,4 +105,4 @@ echo Modal::widget([
 </div>
 ```
 
-The entire code can be found at - [sergmoro1/yii2-lookup](https://github.com/sergmoro1/yii2-lookup).
+The entire code can be found at [sergmoro1/yii2-lookup](https://github.com/sergmoro1/yii2-lookup).
