@@ -13,7 +13,7 @@
             "email": "sergmoro1@ya.ru"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
         "php": ">=5.4.0",
