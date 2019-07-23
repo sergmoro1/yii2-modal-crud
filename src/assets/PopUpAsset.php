@@ -10,7 +10,7 @@ use yii\web\AssetBundle;
 
 class PopUpAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/sergmoro1/yii2-modal-crud/src/assets';
+    public $sourcePath = '@vendor/sergmoro1/yii2-modal-crud/src/assets/src';
     public $css = [
     ];
     public $js = [
