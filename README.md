@@ -12,7 +12,7 @@ Either run
 
 or add
 
-`"sergmoro1/yii2-modal-crud": "~1.0"`
+`"sergmoro1/yii2-modal-crud": "dev-master"`
 
 to the require section of your composer.json.
 
