@@ -1,6 +1,5 @@
 {
     "name": "sergmoro1/yii2-modal-crud",
-    "version": "1.0.0",
     "description": "Add and update models in a modal window.",
     "keywords": [
         "yii2", "modal", "add", "update", "editing"
